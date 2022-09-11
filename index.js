@@ -19,6 +19,9 @@ const bodyParser = multer();
 
 app.use( bodyParser.none() );
 
+const bodySanitizer = require('./app/middlewares/body-sanitizer');
+app.use(bodySanitizer);
+
 app.use(express.static('./public'));
 
 app.use(router);
